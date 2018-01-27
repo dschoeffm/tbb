@@ -31,6 +31,8 @@ all: tbb tbbmalloc tbbproxy test examples
 tbb: mkdir
 	$(MAKE) -C "$(work_dir)_debug"  -r -f $(tbb_root)/build/Makefile.tbb cfg=debug
 	$(MAKE) -C "$(work_dir)_release"  -r -f $(tbb_root)/build/Makefile.tbb cfg=release
+	ln -sf "$(work_dir)_release/libtbb.a" "libtbb.a"
+	ln -sf "$(work_dir)_debug/libtbb_debug.a" "libtbb_debug.a"
 
 tbbmalloc: mkdir
 	$(MAKE) -C "$(work_dir)_debug"  -r -f $(tbb_root)/build/Makefile.tbbmalloc cfg=debug malloc
